@@ -3,6 +3,7 @@
         <title>Project</title>
     </head>
     <body>
+        {% block body %}
         <div class='form'>
             <h2>Record Form</h2>
             <form action="{{ url_for('update') }}" method='POST'>
@@ -15,5 +16,6 @@
             </form>
         </div>
         <br/>
+        {% endblock body %}
     </body>
 </html>
