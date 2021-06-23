@@ -5,7 +5,6 @@ class Users(db.Model):
     username = db.Column(db.String(20), nullable=False, unique=True)
     first_name = db.Column(db.String(20), nullable=False)
     surname = db.Column(db.String(20), nullable=False)
-    email = db.Column(db.String(30), nullable=False, unique=True)
     date_of_birth = db.Column(db.Date, nullable=False)
     user_best = db.relationship('User_stats', backref='user')
 
