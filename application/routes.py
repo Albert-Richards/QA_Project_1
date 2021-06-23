@@ -13,10 +13,10 @@ def home():
 def add():
     form = RecordForm(request.form)
 
-    """if form.validate_on_submit():
+    if form.validate_on_submit():
         db.session.add(User_stats(exercise_id=form.exercise_name.data, personal_best=form.personal_best.data)
         db.session.commit()
-        return redirect(url_for('home'))"""
+        return redirect(url_for('home'))
     return render_template('update.html', form=form)
 
 """@app.route('/delete', methods=['DELETE'])

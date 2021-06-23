@@ -15,7 +15,7 @@ class RegisterForm(FlaskForm):
 
 class RecordForm(FlaskForm):
     exercises = Exercises.query.all()
-    exercise_name=SelectField('Exercise' choices=[
+    exercise_name=SelectField('Exercise', choices=[
         (exercises[0].id, exercises[0].exercise_name),
         (exercises[1].id, exercises[1].exercise_name),
         (exercises[2].id, exercises[2].exercise_name),
