@@ -1,30 +1,33 @@
 from flask import redirect, url_for, render_template, request
 
 from application import app, db
-from application.models import Games
-from application.forms import BasicForm
+from application.models import Exercises, User_stats
+from application.forms import RecordForm, ExerciseForm
 
 @app.route('/')
-@app.route('/<error>')
-def index(error=None):
-    form = RegisterForm(request.form)
-    
-    return render_template('index.html', form=form, history=history, error=error)
+def home():
+    form = RecordForm(request.form)
+       
+    return render_template('update.html', form=form)
 
 @app.route('/add', methods=['POST'])
 def add():
-    form = BasicForm(request.form)
+    form = RecordForm(request.form)
 
     if form.validate_on_submit():
-        db.session.add(Games(name=form.name.data))
+        db.session.add(User_stats(exercise_id=form.exercise_name.data,
+        personal_best=form.personal_best.data)
         db.session.commit()
+    redirect(url_for('home'))
 
-    error = next(iter(form.name.errors), None)
-    return redirect(url_for('index', error=error))
-@app.route('/update')
-def update():
-    pass
-
-@app.route('/delete')
+@app.route('/delete', methods=['DELETE'])
 def delete():
-    pass
+    form = ExerciseForm(request.form)
+
+    if form.validate_on_submit():
+        db.session.delete(User_stats(exercise_id=form.exercise_name.data)
+        db.session.commit()
+    return redirect(url_for('index', error=error))
+
+ 
+    

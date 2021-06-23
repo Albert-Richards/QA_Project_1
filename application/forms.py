@@ -24,6 +24,12 @@ class RecordForm(FlaskForm):
     personal_best=DecimalField('Enter your personal best', places=1)
     submit = SubmitField('Submit')
 
-'''class ExerciseForm(FlaskForm):
-    exercise_name=StringField('Name of exercise')
-    submit = SubmitField('Submit')'''
+class ExerciseForm(FlaskForm):
+    exercises = Exercises.query.all()
+    exercise_name=SelectField('Exercise' choices=[
+        (exercises[0].id, exercises[0].exercise_name),
+        (exercises[1].id, exercises[1].exercise_name),
+        (exercises[2].id, exercises[2].exercise_name),
+        (exercises[3].id, exercises[3].exercise_name)
+        ])
+    submit = SubmitField('Submit')

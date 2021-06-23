@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Project</title>
+    </head>
+    <body>
+        <div class='form'>
+            <h2>Record Form</h2>
+            <form action="{{ url_for('update') }}" method='POST'>
+                {{ form.hidden_tag() }}
+                {{ form.exercise_name.label }} {{ form.exercise_name }}
+                <br/>
+                {{ form.personal_best.label}} {{form.personal_best}}
+                <br/>
+                {{ form.submit }}
+            </form>
+        </div>
+        <br/>
+    </body>
+</html>
