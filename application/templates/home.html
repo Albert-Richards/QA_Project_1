@@ -1,8 +1,8 @@
-{% extends "updates.html" %}
+{% extends "add.html" %}
 {% block body %}
-    {% if records %}
-        {% for entry in records %}
-            <li>{{entry.exercise_name}} {{entry.personal_best}}</li>
+    {% if list %}
+        {% for entry in list %}
+            <li>{{entry[0]}} personal best: {{entry[1]}}</li>
         {% endfor %}
     {% endif %}
 {% endblock body %}

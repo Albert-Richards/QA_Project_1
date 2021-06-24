@@ -1,0 +1,14 @@
+{% extends "add.html" %}
+{% block body %}
+<div class='form'>
+    <h2>Delete Form</h2>
+    <form action="" method='POST'>
+        {{ form.hidden_tag() }}
+        select exercise you with to delete record for:
+        <br/>
+        {{ form.exercise_name.label }} {{ form.exercise_name }}
+        <br/>
+        {{ form.submit }}
+    </form>
+</div>
+{% endblock body %}
