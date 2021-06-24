@@ -75,3 +75,7 @@ class TestViews(TestBase):
      def test_delete_get(self):
         response = self.client.get(url_for('delete'))
         self.assertEqual(response.status_code, 200)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5c4deb7ed9b1e63f1e31137ec2ea8a35137d6f04
