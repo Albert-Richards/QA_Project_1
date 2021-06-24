@@ -4,7 +4,7 @@ from os import getenv
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI']=getenv('URI_database_project')
+app.config['SQLALCHEMY_DATABASE_URI']=getenv('URI_project_db') 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=True
 app.config['SECRET_KEY']=getenv('S_key')
 
