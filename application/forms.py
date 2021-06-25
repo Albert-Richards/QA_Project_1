@@ -21,3 +21,4 @@ class RecordForm(FlaskForm):
 class ExerciseForm(FlaskForm):
     exercise_name=SelectField('Exercise', choices=[])
     submit = SubmitField('Submit')
+

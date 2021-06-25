@@ -4,12 +4,13 @@ from application import app, db
 from application.models import Exercises, User_stats
 from application.forms import RecordForm, ExerciseForm
 
+def exercise(name):
+        exname = Exercises.query.filter_by(id=name).first()
+        return exname.exercise_name
+
 @app.route('/')
 def home():
     records = User_stats.query.all()
-    def exercise(name):
-        exname = Exercises.query.filter_by(id=name).first()
-        return exname.exercise_name
     recordlist = []
     for entry in records:
         recordlist.append([exercise(entry.exercise_id), entry.personal_best])
