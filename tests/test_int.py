@@ -7,7 +7,7 @@ import random
 from application import app, db
 from application.models import Exercises, User_stats
 
-"""class TestBase(LiveServerTestCase):
+class TestBase(LiveServerTestCase):
     #TEST_PORT = 5050 
 
     def create_app(self):
@@ -62,12 +62,14 @@ class TestAdd(TestBase):
         self.driver.find_element_by_xpath('//*[@id="submit"]').click()
 
     def test_create(self):
+        count = 1
         for case in self.TEST_CASES:
-            self.submit_input(case)
+            self.submit_input(str(case))
             self.assertIn(url_for('home'), self.driver.current_url)
-
-            text = self.driver.find_element_by_xpath('/html/body/li').text 
-            self.assertEqual(text, case)
+            text = self.driver.find_element_by_xpath(f'/html/body/li[{count}]').text
+            self.assertIn(str(case), text)
+            count += 1
 
             entry = User_stats.query.filter_by(personal_best=case).first()
-            self.assertNotEqual(entry, None)"""
+            self.assertNotEqual(entry, None)
+        

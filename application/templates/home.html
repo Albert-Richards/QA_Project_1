@@ -1,8 +1,9 @@
 {% extends "add.html" %}
 {% block body %}
+<h2>Your Gym Records</h2>
     {% if list %}
         {% for entry in list %}
-            <li>{{entry[0]}} personal best: {{entry[1]}}</li>
+            <li>{{entry[0]}} personal best is: {{entry[1]}} kg</li>
         {% endfor %}
     {% endif %}
     <br/>

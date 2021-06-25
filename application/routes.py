@@ -13,7 +13,7 @@ def home():
     records = User_stats.query.all()
     recordlist = []
     for entry in records:
-        recordlist.append([exercise(entry.exercise_id), entry.personal_best])
+        recordlist.append([exercise(entry.exercise_id), round(entry.personal_best,1)])
     return render_template('home.html', list= recordlist)
 
 
