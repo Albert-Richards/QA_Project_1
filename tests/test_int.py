@@ -67,9 +67,8 @@ class TestAdd(TestBase):
             self.submit_input(str(case))
             self.assertIn(url_for('home'), self.driver.current_url)
             text = self.driver.find_element_by_xpath(f'/html/body/li[{count}]').text
-            self.assertIn(str(case), text)
+            self.assertIn(str(round(case,1)), text)
             count += 1
 
             entry = User_stats.query.filter_by(personal_best=case).first()
             self.assertNotEqual(entry, None)
-        
