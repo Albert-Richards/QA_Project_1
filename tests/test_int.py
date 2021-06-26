@@ -72,3 +72,25 @@ class TestAdd(TestBase):
 
             entry = User_stats.query.filter_by(personal_best=case).first()
             self.assertNotEqual(entry, None)
+
+class TestDelete(TestBase):
+    def submit_input(self, case, id):
+        self.driver.find_element_by_xpath('/html/body/a[2]').click()
+        self.driver.find_element_by_xpath('//*[@id="exercise_name"]').send_keys(id)
+        self.driver.find_element_by_xpath('//*[@id="personal_best"]').send_keys(case)
+        self.driver.find_element_by_xpath('//*[@id="submit"]').click()
+    
+    def delete_input(self, id):
+        self.driver.find_element_by_xpath('/html/body/a[3]').click()
+        self.driver.find_element_by_xpath('//*[@id="exercise_name"]').send_keys(id)
+        self.driver.find_element_by_xpath('//*[@id="submit"]').click()
+
+    def test_delete(self):
+        case = 100
+        for id in range(1,5):
+            self.submit_input(str(case), id)
+            self.delete_input(id)
+            self.assertIn(url_for('home'), self.driver.current_url)
+
+            entry = User_stats.query.filter_by(exercise_id=id).first()
+            self.assertEqual(entry, None)
