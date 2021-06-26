@@ -41,9 +41,9 @@ I chose [Trello](https://trello.com) to create my Kanban board and hence to plan
 
 A screenshot of my Trello board:
 
-![trello_board]
+![trello_board](./images/trello_board.png)
 
-My full Trello board can be accessed [here]().
+My full Trello board can be accessed [here](https://trello.com/b/7kMzASNH/qaproject-1).
 
 ### Risk Assessment 
 
